@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 if (!isset($_SESSION['login'])) {
     header("Location: index.php");
     exit;
@@ -8,59 +7,63 @@ if (!isset($_SESSION['login'])) {
 
 include "koneksi.php";
 
-$masuk = mysqli_fetch_assoc(
-    mysqli_query(
-        $conn,
-        "SELECT SUM(jumlah) total FROM pemasukan"
-    )
-);
+$masuk  = mysqli_fetch_assoc(mysqli_query($conn, "SELECT SUM(jumlah) total FROM pemasukan"));
+$keluar = mysqli_fetch_assoc(mysqli_query($conn, "SELECT SUM(jumlah) total FROM pengeluaran"));
 
-$keluar = mysqli_fetch_assoc(
-    mysqli_query(
-        $conn,
-        "SELECT SUM(jumlah) total FROM pengeluaran"
-    )
-);
-
-$totalMasuk = $masuk['total'] ?? 0;
+$totalMasuk  = $masuk['total']  ?? 0;
 $totalKeluar = $keluar['total'] ?? 0;
-
-$saldo = $totalMasuk - $totalKeluar;
+$saldo       = $totalMasuk - $totalKeluar;
 ?>
 
 <!DOCTYPE html>
-<html>
-
+<html lang="id">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
+<nav class="navbar">
+    <div class="navbar-inner">
+        <span class="navbar-brand">Manajemen Keuangan</span>
+        <div class="navbar-links">
+            <a href="dashboard.php" class="aktif">Dashboard</a>
+            <a href="pemasukan.php">Pemasukan</a>
+            <a href="pengeluaran.php">Pengeluaran</a>
+            <a href="logout.php" class="keluar">Logout</a>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+
     <h2>Dashboard</h2>
+    <p style="margin-bottom: 20px; color: #666; font-size: 0.9rem;">
+        Selamat datang, <strong><?= htmlspecialchars($_SESSION['username']); ?></strong>
+    </p>
 
-    <p>Selamat Datang <?= $_SESSION['username']; ?></p>
+    <div class="stat-row">
+        <div class="stat-box stat-biru">
+            <p>Total Pemasukan</p>
+            <h3>Rp <?= number_format($totalMasuk, 0, ',', '.'); ?></h3>
+        </div>
+        <div class="stat-box stat-merah">
+            <p>Total Pengeluaran</p>
+            <h3>Rp <?= number_format($totalKeluar, 0, ',', '.'); ?></h3>
+        </div>
+        <div class="stat-box stat-hijau">
+            <p>Saldo</p>
+            <h3>Rp <?= number_format($saldo, 0, ',', '.'); ?></h3>
+        </div>
+    </div>
 
-    <h3>Total Pemasukan :
-        Rp <?= number_format($totalMasuk, 0, ",", "."); ?>
-    </h3>
+    <a href="pemasukan.php" class="btn btn-biru">Data Pemasukan</a>
+    &nbsp;
+    <a href="pengeluaran.php" class="btn btn-hijau">Data Pengeluaran</a>
 
-    <h3>Total Pengeluaran :
-        Rp <?= number_format($totalKeluar, 0, ",", "."); ?>
-    </h3>
-
-    <h3>Saldo :
-        Rp <?= number_format($saldo, 0, ",", "."); ?>
-    </h3>
-
-    <hr>
-
-    <a href="pemasukan.php">Data Pemasukan</a><br><br>
-
-    <a href="pengeluaran.php">Data Pengeluaran</a><br><br>
-
-    <a href="logout.php">Logout</a>
+</div>
 
 </body>
-
 </html>
