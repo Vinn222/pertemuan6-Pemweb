@@ -1,0 +1,240 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f0f2f5;
+    color: #333;
+}
+
+.container {
+    width: 90%;
+    max-width: 900px;
+    margin: 40px auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+h2 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #3498db;
+}
+
+/* TABEL */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    font-size: 0.9rem;
+}
+
+table th {
+    background-color: #3498db;
+    color: #fff;
+    padding: 12px 14px;
+    text-align: center;
+}
+
+table td {
+    padding: 10px 14px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+}
+
+table tr:hover td {
+    background-color: #f5f9ff;
+}
+
+/* TOMBOL */
+.btn {
+    display: inline-block;
+    padding: 8px 18px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    transition: opacity 0.2s;
+}
+
+.btn:hover {
+    opacity: 0.85;
+}
+
+.btn-biru {
+    background-color: #3498db;
+    color: #fff;
+}
+
+.btn-hijau {
+    background-color: #2ecc71;
+    color: #fff;
+}
+
+.btn-merah {
+    background-color: #e74c3c;
+    color: #fff;
+}
+
+.btn-abu {
+    background-color: #95a5a6;
+    color: #fff;
+}
+
+/* FORM */
+.form-group {
+    margin-bottom: 16px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: #555;
+    margin-bottom: 6px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 9px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    background: #fafafa;
+    transition: border-color 0.2s;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #3498db;
+    background: #fff;
+}
+
+/* KOTAK STATISTIK DASHBOARD */
+.stat-row {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+}
+
+.stat-box {
+    flex: 1;
+    min-width: 160px;
+    padding: 18px;
+    border-radius: 8px;
+    text-align: center;
+    color: #fff;
+}
+
+.stat-box p {
+    font-size: 0.8rem;
+    margin-bottom: 6px;
+    opacity: 0.9;
+}
+
+.stat-box h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.stat-biru  { background-color: #3498db; }
+.stat-merah { background-color: #e74c3c; }
+.stat-hijau { background-color: #2ecc71; }
+
+/* LOGIN */
+.login-wrapper {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-box {
+    background: #fff;
+    padding: 36px 32px;
+    border-radius: 10px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 380px;
+    text-align: center;
+}
+
+.login-box h2 {
+    border: none;
+    margin-bottom: 6px;
+}
+
+.login-box p {
+    font-size: 0.83rem;
+    color: #888;
+    margin-bottom: 24px;
+}
+
+.error {
+    background: #fdecea;
+    color: #c0392b;
+    padding: 9px 12px;
+    border-radius: 6px;
+    font-size: 0.83rem;
+    margin-bottom: 14px;
+}
+
+/* NAVBAR */
+.navbar {
+    background: #fff;
+    border-bottom: 1px solid #ddd;
+    padding: 12px 0;
+    margin-bottom: 0;
+}
+
+.navbar-inner {
+    width: 90%;
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar-brand {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #2c3e50;
+    text-decoration: none;
+}
+
+.navbar-links {
+    display: flex;
+    gap: 8px;
+}
+
+.navbar-links a {
+    font-size: 0.83rem;
+    font-weight: 500;
+    color: #555;
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    transition: background 0.15s;
+}
+
+.navbar-links a:hover    { background: #f0f2f5; color: #2c3e50; }
+.navbar-links a.aktif   { background: #ebf5fb; color: #3498db; }
+.navbar-links a.keluar  { color: #e74c3c; }
+.navbar-links a.keluar:hover { background: #fdecea; }
