@@ -8,6 +8,7 @@ $db   = getenv('DB_NAME');
 
 // Menghubungkan ke MySQL Aiven dengan Port khusus
 $conn = mysqli_connect($host, $user, $pass, $db, $port);
+$koneksi = $conn;
 
 if (!$conn) {
     die("Koneksi gagal : " . mysqli_connect_error());
