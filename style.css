@@ -150,6 +150,12 @@ table tr:hover td {
     box-shadow: 0 0 0 3px rgba(93, 163, 250, 0.13);
 }
 
+/* Teks tanggal dan icon kalender jadi putih */
+.form-group input[type="date"] {
+    color: #ffffff;
+    color-scheme: dark;
+}
+
 /* ===== STATISTIK DASHBOARD ===== */
 .stat-row {
     display: flex;
