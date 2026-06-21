@@ -8,27 +8,27 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: #f0f2f5;
-    color: #333;
+    background-color: #0B132B;
+    color: #e0e6f0;
 }
 
 .container {
     width: 90%;
     max-width: 900px;
     margin: 40px auto;
-    background: #fff;
+    background: #131B36;
     padding: 30px;
     border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
 }
 
 h2 {
     font-size: 1.4rem;
     font-weight: 600;
-    color: #2c3e50;
+    color: #e0e6f0;
     margin-bottom: 20px;
     padding-bottom: 10px;
-    border-bottom: 2px solid #3498db;
+    border-bottom: 2px solid #5DA3FA;
 }
 
 /* TABEL */
@@ -40,20 +40,22 @@ table {
 }
 
 table th {
-    background-color: #3498db;
-    color: #fff;
+    background-color: #1e2a4a;
+    color: #5DA3FA;
     padding: 12px 14px;
     text-align: center;
+    font-weight: 600;
 }
 
 table td {
     padding: 10px 14px;
     text-align: center;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #1e2a4a;
+    color: #c8d3e8;
 }
 
 table tr:hover td {
-    background-color: #f5f9ff;
+    background-color: #1a2340;
 }
 
 /* TOMBOL */
@@ -67,31 +69,32 @@ table tr:hover td {
     text-decoration: none;
     cursor: pointer;
     border: none;
-    transition: opacity 0.2s;
+    transition: opacity 0.2s, transform 0.15s;
 }
 
 .btn:hover {
     opacity: 0.85;
+    transform: translateY(-1px);
 }
 
 .btn-biru {
-    background-color: #3498db;
-    color: #fff;
+    background-color: #5DA3FA;
+    color: #0B132B;
 }
 
 .btn-hijau {
-    background-color: #2ecc71;
-    color: #fff;
+    background-color: #3FD9A4;
+    color: #0B132B;
 }
 
 .btn-merah {
-    background-color: #e74c3c;
+    background-color: #F0796B;
     color: #fff;
 }
 
 .btn-abu {
-    background-color: #95a5a6;
-    color: #fff;
+    background-color: #1e2a4a;
+    color: #a0aec0;
 }
 
 /* FORM */
@@ -103,26 +106,25 @@ table tr:hover td {
     display: block;
     font-size: 0.88rem;
     font-weight: 500;
-    color: #555;
+    color: #a0b0cc;
     margin-bottom: 6px;
 }
 
 .form-group input {
     width: 100%;
     padding: 9px 12px;
-    border: 1px solid #ccc;
+    border: 1px solid #1e2a4a;
     border-radius: 6px;
     font-size: 0.9rem;
     font-family: 'Poppins', sans-serif;
-    color: #333;
-    background: #fafafa;
+    color: #e0e6f0;
+    background: #0B132B;
     transition: border-color 0.2s;
 }
 
 .form-group input:focus {
     outline: none;
-    border-color: #3498db;
-    background: #fff;
+    border-color: #5DA3FA;
 }
 
 /* KOTAK STATISTIK DASHBOARD */
@@ -139,13 +141,14 @@ table tr:hover td {
     padding: 18px;
     border-radius: 8px;
     text-align: center;
-    color: #fff;
 }
 
 .stat-box p {
-    font-size: 0.8rem;
+    font-size: 0.78rem;
     margin-bottom: 6px;
-    opacity: 0.9;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
 }
 
 .stat-box h3 {
@@ -153,9 +156,20 @@ table tr:hover td {
     font-weight: 600;
 }
 
-.stat-biru  { background-color: #3498db; }
-.stat-merah { background-color: #e74c3c; }
-.stat-hijau { background-color: #2ecc71; }
+.stat-biru {
+    background-color: #5DA3FA;
+    color: #0B132B;
+}
+
+.stat-merah {
+    background-color: #F0796B;
+    color: #fff;
+}
+
+.stat-hijau {
+    background-color: #3FD9A4;
+    color: #0B132B;
+}
 
 /* LOGIN */
 .login-wrapper {
@@ -166,10 +180,10 @@ table tr:hover td {
 }
 
 .login-box {
-    background: #fff;
+    background: #131B36;
     padding: 36px 32px;
     border-radius: 10px;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
     width: 100%;
     max-width: 380px;
     text-align: center;
@@ -182,13 +196,14 @@ table tr:hover td {
 
 .login-box p {
     font-size: 0.83rem;
-    color: #888;
+    color: #5DA3FA;
     margin-bottom: 24px;
 }
 
 .error {
-    background: #fdecea;
-    color: #c0392b;
+    background: rgba(240, 121, 107, 0.15);
+    color: #F0796B;
+    border: 1px solid #F0796B;
     padding: 9px 12px;
     border-radius: 6px;
     font-size: 0.83rem;
@@ -197,10 +212,9 @@ table tr:hover td {
 
 /* NAVBAR */
 .navbar {
-    background: #fff;
-    border-bottom: 1px solid #ddd;
+    background: #131B36;
+    border-bottom: 1px solid #1e2a4a;
     padding: 12px 0;
-    margin-bottom: 0;
 }
 
 .navbar-inner {
@@ -215,26 +229,26 @@ table tr:hover td {
 .navbar-brand {
     font-size: 1rem;
     font-weight: 600;
-    color: #2c3e50;
+    color: #5DA3FA;
     text-decoration: none;
 }
 
 .navbar-links {
     display: flex;
-    gap: 8px;
+    gap: 6px;
 }
 
 .navbar-links a {
     font-size: 0.83rem;
     font-weight: 500;
-    color: #555;
+    color: #a0b0cc;
     text-decoration: none;
     padding: 6px 12px;
     border-radius: 6px;
-    transition: background 0.15s;
+    transition: background 0.15s, color 0.15s;
 }
 
-.navbar-links a:hover    { background: #f0f2f5; color: #2c3e50; }
-.navbar-links a.aktif   { background: #ebf5fb; color: #3498db; }
-.navbar-links a.keluar  { color: #e74c3c; }
-.navbar-links a.keluar:hover { background: #fdecea; }
+.navbar-links a:hover   { background: #1e2a4a; color: #e0e6f0; }
+.navbar-links a.aktif   { background: rgba(93, 163, 250, 0.15); color: #5DA3FA; }
+.navbar-links a.keluar  { color: #F0796B; }
+.navbar-links a.keluar:hover { background: rgba(240, 121, 107, 0.12); }
