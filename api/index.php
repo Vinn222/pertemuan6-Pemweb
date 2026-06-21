@@ -9,12 +9,12 @@ if (isset($_POST['login'])) {
     $query = mysqli_query($conn, "SELECT * FROM users WHERE username='$username' AND password='$password'");
 
     if (mysqli_num_rows($query) > 0) {
-        $_SESSION['login']    = true;
-        $_SESSION['username'] = $username;
+        // Menghapus $_SESSION lama dan menggantinya dengan Cookie selama 1 jam
+        setcookie("login", "true", time() + 3600, "/");
+        setcookie("username", $username, time() + 3600, "/");
+
         header("Location: /dashboard.php");
         exit;
-    } else {
-        $error = "Username atau password salah.";
     }
 }
 ?>
