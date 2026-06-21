@@ -41,7 +41,7 @@ $saldo       = $totalMasuk - $totalKeluar;
 
     <h2>Dashboard</h2>
     <p style="margin-bottom: 20px; color: #666; font-size: 0.9rem;">
-        Selamat datang, <strong><?= htmlspecialchars($_SESSION['username']); ?></strong>
+        Selamat datang, <?php echo htmlspecialchars($_COOKIE['username'] ?? 'Admin'); ?></strong>
     </p>
 
     <div class="stat-row">
