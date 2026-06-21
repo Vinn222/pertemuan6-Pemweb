@@ -1,5 +1,4 @@
 <?php
-session_start();
 include "koneksi.php";
 
 if (isset($_POST['login'])) {
@@ -9,12 +8,13 @@ if (isset($_POST['login'])) {
     $query = mysqli_query($conn, "SELECT * FROM users WHERE username='$username' AND password='$password'");
 
     if (mysqli_num_rows($query) > 0) {
-        // Menghapus $_SESSION lama dan menggantinya dengan Cookie selama 1 jam
         setcookie("login", "true", time() + 3600, "/");
         setcookie("username", $username, time() + 3600, "/");
 
         header("Location: /dashboard.php");
         exit;
+    } else {
+        $error = "Username atau password salah.";
     }
 }
 ?>
@@ -36,25 +36,23 @@ if (isset($_POST['login'])) {
         <p>Aplikasi Manajemen Keuangan</p>
 
         <?php if (isset($error)) { ?>
-            <div class="error"><?= $error; ?></div>
+            <div class="error" style="color: red; margin-bottom: 15px; font-size: 0.9rem;"><?= $error; ?></div>
         <?php } ?>
 
         <form method="POST">
-
             <div class="form-group" style="text-align: left;">
                 <label>Username</label>
-                <input type="text" name="username" placeholder="Masukkan username">
+                <input type="text" name="username" placeholder="Masukkan username" required>
             </div>
 
             <div class="form-group" style="text-align: left;">
                 <label>Password</label>
-                <input type="password" name="password" placeholder="Masukkan password">
+                <input type="password" name="password" placeholder="Masukkan password" required>
             </div>
 
             <button name="login" type="submit" class="btn btn-biru" style="width: 100%; padding: 10px;">
                 Login
             </button>
-
         </form>
 
     </div>

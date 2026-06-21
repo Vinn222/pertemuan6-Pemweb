@@ -1,5 +1,4 @@
 <?php
-session_start();
 if (!isset($_COOKIE['login']) || $_COOKIE['login'] !== "true") {
     header("Location: /index.php");
     exit;
@@ -41,7 +40,7 @@ $saldo       = $totalMasuk - $totalKeluar;
 
     <h2>Dashboard</h2>
     <p style="margin-bottom: 20px; color: #666; font-size: 0.9rem;">
-        Selamat datang, <?php echo htmlspecialchars($_COOKIE['username'] ?? 'Admin'); ?></strong>
+        Selamat datang, <?php echo htmlspecialchars($_COOKIE['username'] ?? 'Admin'); ?>
     </p>
 
     <div class="stat-row">

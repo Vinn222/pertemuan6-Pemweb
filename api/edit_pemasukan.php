@@ -1,6 +1,5 @@
 <?php
-session_start();
-if (!isset($_SESSION['login'])) {
+if (!isset($_COOKIE['login']) || $_COOKIE['login'] !== "true") {
     header("Location: /index.php");
     exit;
 }
@@ -15,8 +14,7 @@ if (isset($_POST['update'])) {
     $keterangan = $_POST['keterangan'];
     $jumlah     = $_POST['jumlah'];
 
-    mysqli_query($conn, "UPDATE pemasukan SET tanggal='$tanggal', keterangan='$keterangan',
-                         jumlah='$jumlah' WHERE id='$id'");
+    mysqli_query($conn, "UPDATE pemasukan SET tanggal='$tanggal', keterangan='$keterangan', jumlah='$jumlah' WHERE id='$id'");
 
     header("Location: pemasukan.php");
     exit;
@@ -50,7 +48,6 @@ if (isset($_POST['update'])) {
     <h2>Edit Pemasukan</h2>
 
     <form method="POST" style="max-width: 450px;">
-
         <div class="form-group">
             <label>Tanggal</label>
             <input type="date" name="tanggal" value="<?= $data['tanggal']; ?>" required>
@@ -69,7 +66,6 @@ if (isset($_POST['update'])) {
         <button name="update" type="submit" class="btn btn-hijau">Update</button>
         &nbsp;
         <a href="pemasukan.php" class="btn btn-abu">Batal</a>
-
     </form>
 
 </div>

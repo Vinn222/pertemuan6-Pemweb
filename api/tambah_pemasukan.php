@@ -1,6 +1,5 @@
 <?php
-session_start();
-if (!isset($_SESSION['login'])) {
+if (!isset($_COOKIE['login']) || $_COOKIE['login'] !== "true") {
     header("Location: /index.php");
     exit;
 }
@@ -12,7 +11,7 @@ if (isset($_POST['simpan'])) {
     $keterangan = $_POST['keterangan'];
     $jumlah     = $_POST['jumlah'];
 
-    mysqli_query($conn, "INSERT INTO pemasukan (tanggal, keterangan, jumlah)
+    mysqli_query($conn, "INSERT INTO pemasukan (tanggal, keterangan, jumlah) 
                          VALUES ('$tanggal', '$keterangan', '$jumlah')");
 
     header("Location: pemasukan.php");
@@ -60,13 +59,12 @@ if (isset($_POST['simpan'])) {
 
         <div class="form-group">
             <label>Jumlah (Rp)</label>
-            <input type="number" name="jumlah" placeholder="Contoh: 5000000" required>
+            <input type="number" name="jumlah" placeholder="Contoh: 500000" required>
         </div>
 
         <button name="simpan" type="submit" class="btn btn-biru">Simpan</button>
         &nbsp;
         <a href="pemasukan.php" class="btn btn-abu">Batal</a>
-
     </form>
 
 </div>

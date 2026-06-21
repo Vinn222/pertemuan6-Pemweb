@@ -1,6 +1,5 @@
 <?php
-session_start();
-if (!isset($_SESSION['login'])) {
+if (!isset($_COOKIE['login']) || $_COOKIE['login'] !== "true") {
     header("Location: /index.php");
     exit;
 }
@@ -54,7 +53,7 @@ $data = mysqli_query($conn, "SELECT * FROM pemasukan ORDER BY id DESC");
         <tr>
             <td><?= $no++; ?></td>
             <td><?= $row['tanggal']; ?></td>
-            <td><?= $row['keterangan']; ?></td>
+            <td><?= htmlspecialchars($row['keterangan']); ?></td>
             <td>Rp <?= number_format($row['jumlah'], 0, ',', '.'); ?></td>
             <td>
                 <a href="edit_pemasukan.php?id=<?= $row['id']; ?>" class="btn btn-hijau">Edit</a>
